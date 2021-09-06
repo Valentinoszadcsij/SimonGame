@@ -10,7 +10,7 @@ playSound();
 animatePress();
 
 
-$('.startBtn').click(startGameButton);
+$('.startBtn').one("click", startGameButton);
 
 
 function nextSequence (){
@@ -72,7 +72,9 @@ function checkAnswer(){
         setTimeout(function(){
             $('body').removeClass('game-over');
         }, 500)
+        $('.startBtn').removeClass("pressed")
         $('.startBtn').text('Retry');
+        $('.startBtn').one("click", startGameButton);
         var wrongSound = new Audio('sounds/wrong.mp3');
         wrongSound.play();
 
